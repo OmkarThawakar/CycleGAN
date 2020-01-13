@@ -22,6 +22,32 @@ path_to_zip = tf.keras.utils.get_file('horse2zebra.zip',
 
 PATH = os.path.join(os.path.dirname(path_to_zip), 'dataset/')
 ```
+
+## Sample Image
+
+![alt text](dataset_image.png)
+
+## Dataset Structure
+```
+  ├── dataset                   # Dataset folder
+    ├── trainA                  # folder contains Horses
+    │   ├── *.jpg         
+    |   |........
+    |   └── *.jpg        
+    ├── trainB                  # folder contains Zebras
+    │   ├── *.jpg          
+    |   |........
+    |   └── *.jpg
+    ├── testA                   # test folder contains Horses
+    │   ├── *.jpg          
+    |   |........
+    |   └── *.jpg
+    └── testB                   # test folder contains Zebras
+        ├── *.jpg          
+        |........
+        └── *.jpg
+     
+```
 ## Train the Model
 
 Windows
