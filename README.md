@@ -37,11 +37,11 @@ In code change mode in **kwargs
 
 ```
 kwargs = {'epochs': 500, 
-			'path': 'dataset',
-				'mode':'test', 
-				'output_path':'Exp_1',
-				'batch_size':1,
-	        }
+	  'path': 'dataset',
+	  'mode':'test', 
+	  'output_path':'Exp_1',
+          'batch_size':1,
+}
  ```
  Run same command for testing
  ```
