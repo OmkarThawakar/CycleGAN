@@ -14,8 +14,6 @@ except Exception:
 import tensorflow as tf
 
 import os
-os.environ['CUDA_VISIBLE_DEVICES']=''
-os.system('color 1')
 import time
 import sys
 from absl import app
@@ -33,19 +31,6 @@ LAMBDA = 100
 IMG_WIDTH = 256
 IMG_HEIGHT = 256
 batch_size=1
-
-
-
-_URL = 'https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/horse2zebra.zip'
-
-path_to_zip = tf.keras.utils.get_file('F:/Pravin/CycleGAN/horse2zebra.zip',
-                                      origin=_URL,
-                                      extract=True)
-os.mkdir('horse2zebra')
-PATH = os.path.join(os.path.dirname(path_to_zip), 'horse2zebra/')
-
-exit(0)
-
 
 def load(image_file):
     image = tf.io.read_file(image_file)
@@ -91,7 +76,6 @@ def load_image_train(image_file):
 	input_image = normalize(input_image)
 
 	return input_image
-
 
 def load_image_test(image_file):
     input_image = load(image_file)
@@ -179,7 +163,6 @@ class Generator_1:
 	    return tf.keras.Model(inputs=self.inputs, outputs=tensor)
 
 class Discriminator1():
-
 	def __init__(self):
 		self.input_ = tf.keras.layers.Input(shape=[256, 256, 3], name='input_image')
 		self.name = 'Disriminator1/'
@@ -243,7 +226,6 @@ class Discriminator1():
 		                            kernel_initializer=initializer)(zero_pad2) 
 
 		return tf.keras.Model(inputs=[self.input_], outputs=last)
-
 
 ###############################################################################################################
 
@@ -321,7 +303,6 @@ class Generator_2:
 	    return tf.keras.Model(inputs=self.inputs, outputs=tensor)
 
 class Discriminator2():
-
 	def __init__(self):
 		self.input_ = tf.keras.layers.Input(shape=[256, 256, 3], name='input_image')
 		self.name = 'Disriminator2/'
@@ -362,7 +343,7 @@ class Discriminator2():
 
 	def build_discriminator(self):
 		initializer = tf.random_normal_initializer(0., 0.02)
-		print(colored('################## Build Discriminator 1 ##################','magenta'))
+		print(colored('################## Build Discriminator 2 ##################','magenta'))
 
 		down1 = self.downsample_block(filters=16, size=4, name='DownSample1_')(self.input_)
 		print(colored('down1 ::: {}'.format(down1.shape),'magenta'))
